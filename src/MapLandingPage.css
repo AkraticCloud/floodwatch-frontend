@@ -1,0 +1,49 @@
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.map-container{
+    flex: 1;
+}
+
+.footer{
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+input {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.custom-marker {
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    border: 2px solid white;
+}
