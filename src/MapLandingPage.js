@@ -21,6 +21,8 @@ function FlyToLocation({ coords }){
 export default function MapLandingPage() {
     const [searchText, setSearchText] = useState("");
     const [center, setCenter] = useState([40.7128, -74.006]); //NYC
+    const [searchResultName, setSearchResultName] = useState("");
+    const [searchCoords, setSearchCoords] = useState(null);
 
     const handleSearch = async () => {
         const query = encodeURIComponent(searchText);
@@ -31,9 +33,12 @@ export default function MapLandingPage() {
             const data = await response.json();
 
             if(data && data.length > 0){
+                const firstResult = data[0];
                 const lat = parseFloat(data[0].lat);
                 const lon = parseFloat(data[0].lon);
                 setCenter([lat, lon]);
+                setSearchCoords({ lat, lon });
+                setSearchResultName(firstResult.display_name);
             } else {
                 alert("Address not found.");
             }
@@ -42,6 +47,7 @@ export default function MapLandingPage() {
         }
     };
 
+    //Containers
     return (
         <div className="landing-page">
             <header className="header">
@@ -83,6 +89,16 @@ export default function MapLandingPage() {
                     </Marker>
                 </MapContainer>
             </div>
+
+            {searchResultName && searchCoords && ( //Ensure box only appears where there is a result
+                <div className="search-info-box">
+                    <strong>Search Result:</strong>
+                    <p>{searchResultName}</p>
+                    <p><strong>Latitude:</strong> {searchCoords.lat}</p>
+                    <p><strong>Longitude:</strong> {searchCoords.lon}</p>
+                </div>
+            )}
+
             <footer className="footer">
                 &copy; {new Date().getFullYear()} FloodWatch
             </footer>

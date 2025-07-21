@@ -13,6 +13,8 @@
 
 .map-container{
     flex: 1;
+    position: relative;
+    overflow:
 }
 
 .footer{
@@ -46,4 +48,13 @@ button:hover {
     height: 20px;
     border-radius: 2px;
     border: 2px solid white;
+}
+
+.search-info-box {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    max-width: 100%;
+    margin: 1rem auto;
 }
