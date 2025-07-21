@@ -56,7 +56,7 @@ export default function MapLandingPage() {
                 <div style={{marginTop: "1rem"}}>
                     <input
                     type="text"
-                    placeholder="Enter address..."
+                    placeholder="Enter address here"
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
                     style={{padding: "0.5rem", width: "300px"}}
